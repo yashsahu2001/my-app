@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CISO Dashboard</title>
+    <style>body { font-family: sans-serif; background: #263238; color: white; padding: 50px; } .container { max-width: 800px; margin: auto; } button { padding: 10px; background: #ff5000; color: white; border: none; cursor: pointer; float: right; }</style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="logout()">Logout</button>
+        <h1 style="color: #ff5000;">Global CISO Dashboard</h1>
+        <h3>Welcome, Admin <span id="uname"></span></h3>
+        <hr>
+        <ul>
+            <li>View Global Enterprise Risk Reports</li>
+            <li>Approve WSO2 Identity Access Policies</li>
+            <li>Monitor Data Center Compliance</li>
+        </ul>
+    </div>
+    <script>
+        document.getElementById('uname').innerText = sessionStorage.getItem("loggedInUser");
+        function logout() { sessionStorage.clear(); window.location.href = "index.html"; }
+    </script>
+</body>
+</html>

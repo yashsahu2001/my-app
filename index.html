@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybersecurity | SSO Login</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #eceff1; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 350px; }
+        button { width: 100%; padding: 15px; background: #ff5000; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #e64500; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Cybersecurity Portal</h2>
+        <p>Authenticate via WSO2 Identity Server</p>
+        <button onclick="loginWithWSO2()">Login with WSO2 SSO</button>
+    </div>
+
+    <script>
+        function loginWithWSO2() {
+            // This line will print to the F12 console to prove the button works
+            console.log("Button clicked! Attempting to redirect to WSO2..."); 
+            
+            var clientId = "MbZb6fqzEMaZwkLbJnPbXhAOo20a"; 
+            var redirectUri = encodeURIComponent("https://localhost:9443/authenticationendpoint/my-app/router.html");
+            
+            var wso2AuthUrl = "https://localhost:9443/oauth2/authorize" + 
+                              "?response_type=id_token" + 
+                              "&client_id=" + clientId + 
+                              "&redirect_uri=" + redirectUri + 
+                              "&scope=openid profile" + 
+                              "&nonce=abc123";
+            
+            // Redirect the browser
+            window.location.href = wso2AuthUrl;
+        }
+    </script>
+</body>
+</html>
